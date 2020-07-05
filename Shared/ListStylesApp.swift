@@ -11,7 +11,7 @@ import SwiftUI
 struct ListStylesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ListStyleView()
         }
     }
 }
