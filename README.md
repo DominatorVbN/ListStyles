@@ -1,6 +1,7 @@
 #  List Styles in SwifUI
 ### In this project i have tried to demonstrate diffrent type of ListStyles available in SwiftUI for **iOS**, **iPadOS** and **macOS**
 </br>
+
 > InsetGroupedListStyle
 > =
 > This list style was introduced new in iOS and iPadOS 14, creates and List with inset and grouped backgroud.
