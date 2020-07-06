@@ -14,7 +14,11 @@ struct ListStyleView: View {
     var list: some View{
         List{
             ForEach(0..<10) { row in
-                Text("Row \(row)")
+                NavigationLink(
+                    "Row \(row)",
+                    destination: Text("Row \(row) Detail")
+                        .frame(idealWidth:  500, maxWidth: .infinity, idealHeight: 300, maxHeight: .infinity)
+                )
             }
         }
     }
@@ -60,7 +64,7 @@ struct ListStyleView: View {
             styledList
                 .navigationTitle("List Styles")
             Text("Select style from the picker to change list style")
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .frame(idealWidth:  500, maxWidth: .infinity, idealHeight: 300, maxHeight: .infinity)
         }
         //adding toolbar inside the navigationview produces unwanted crashes try out your self if you want.
         .toolbar {
