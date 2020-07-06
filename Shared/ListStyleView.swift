@@ -54,11 +54,12 @@ struct ListStyleView: View {
         .labelsHidden()
     }
     
+    #if os(macOS)
     var macOS: some View{
         NavigationView{
             styledList
                 .navigationTitle("List Styles")
-            Text("Select segment to change list style")
+            Text("Select style from the picker to change list style")
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         //adding toolbar inside the navigationview produces unwanted crashes try out your self if you want.
@@ -66,18 +67,26 @@ struct ListStyleView: View {
             stylePicker
         }
     }
+    #endif
     
-    
+    #if os(iOS)
     var iOS: some View{
         NavigationView{
             styledList
                 .navigationTitle("List Styles")
                 .toolbar {
                     stylePicker
+                        //Default style of picker in iOS is WheelPickerStyle
                         .pickerStyle(SegmentedPickerStyle())
                 }
+            GroupBox(label: Text("Select Style"), content: {
+                stylePicker
+            })
+            .frame(maxWidth: 200)
+            .navigationBarHidden(true)
         }
     }
+    #endif
     
     var body: some View{
         #if os(iOS)
