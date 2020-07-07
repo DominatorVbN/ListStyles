@@ -10,15 +10,19 @@ import SwiftUI
 struct ListStyleView: View {
     
     @State var selectedIndex = 3
+    @State var array = Array(0..<10)
     
     var list: some View{
         List{
-            ForEach(0..<10) { row in
+            ForEach(array, id: \.self) { row in
                 NavigationLink(
                     "Row \(row)",
                     destination: Text("Row \(row) Detail")
                         .frame(idealWidth:  500, maxWidth: .infinity, idealHeight: 300, maxHeight: .infinity)
                 )
+            }
+            .onDelete { indexSet in
+                self.array.remove(atOffsets: indexSet)
             }
         }
     }
